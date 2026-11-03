@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Contact
-permalink: /fr/
+permalink: /fr/contact
 lang: fr
 translation_key: contact
 ---
