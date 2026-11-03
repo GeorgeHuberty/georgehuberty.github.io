@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Musique
-permalink: /fr/
+permalink: /fr/music
 lang: fr
 translation_key: music
 ---
