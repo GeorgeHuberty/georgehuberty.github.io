@@ -24,10 +24,10 @@
         {% if language == current_language %}selected{% endif %}
         {% unless destination %}disabled{% endunless %}>
         {% case language %}
-          {% when "en" %}EN 🇺🇸
-          {% when "fr" %}FR 🇫🇷
-          {% when "la" %}LT 🇻🇦
-          {% when "ja" %}JA 🇯🇵
+          {% when "en" %}English
+          {% when "fr" %}Français
+          {% when "la" %}Latinum
+          {% when "ja" %}日本語
         {% endcase %}
       </option>
     {% endfor %}
