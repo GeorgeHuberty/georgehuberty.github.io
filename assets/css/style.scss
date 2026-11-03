@@ -151,3 +151,8 @@ a:focus-visible,
 .wrapper > footer > p:last-child {
   display: none;
 }
+
+/* Change the font size of the sidebar desription */
+.wrapper > header > p:first-of-type {
+  font-size: 14px;
+}
