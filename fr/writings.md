@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Écriture
-permalink: /fr/
+title: Écrits
+permalink: /fr/writings
 lang: fr
 translation_key: writings
 ---
