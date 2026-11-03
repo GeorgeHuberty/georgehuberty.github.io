@@ -145,4 +145,16 @@ a:focus-visible,
 .language-switcher select {
   border: none;
   box-shadow: none;
+} 
+
+/* Extend the main content 40 pixels to the left on desktop */
+@media screen and (min-width: 961px) {
+  .wrapper > section {
+    width: 540px;
+  }
+}
+
+/* Hide the hosting and theme notice */
+.wrapper > footer > p:last-child {
+  display: none;
 }
