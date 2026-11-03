@@ -156,3 +156,8 @@ a:focus-visible,
 .wrapper > header > p:first-of-type {
   font-size: 14px;
 }
+
+/* Preserve distinct u and v in Latin text */
+:lang(la) {
+  font-feature-settings: "locl" 0;
+}
