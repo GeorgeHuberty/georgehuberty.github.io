@@ -90,3 +90,54 @@ body {
   white-space: nowrap;
   border: 0;
 }
+
+/* Black background and pure white text throughout */
+html,
+body {
+  background: #000;
+  color: #fff;
+}
+
+body * {
+  color: #fff;
+}
+
+a,
+a:visited,
+a:hover,
+a:focus,
+a:active {
+  color: #fff;
+}
+
+nav,
+hr,
+th,
+td,
+blockquote {
+  border-color: #fff;
+}
+
+code,
+pre,
+button,
+input,
+select,
+textarea,
+.language-switcher select,
+.language-switcher option {
+  background: #000;
+  color: #fff;
+  border-color: #fff;
+}
+
+a:focus-visible,
+.language-switcher select:focus-visible {
+  outline-color: #fff;
+}
+
+/* Distinguish unavailable languages without using grey text */
+.language-switcher option:disabled {
+  color: #fff;
+  font-style: italic;
+}
