@@ -4,13 +4,39 @@ layout: default
 
 {% include language-switcher.html %}
 
-<nav aria-label="Main navigation">
-  <a href="{{ '/' | relative_url }}">Home</a>
-  <a href="{{ '/writings/' | relative_url }}">Writings</a>
-  <a href="{{ '/readings/' | relative_url }}">Readings</a>
-  <a href="{{ '/music/' | relative_url }}">Music</a>
-  <a href="{{ '/cv/' | relative_url }}">CV</a>
-  <a href="{{ '/contact/' | relative_url }}">Contact</a>
+{% assign current_language = page.lang | default: "en" %}
+
+{% case current_language %}
+  {% when "fr" %}
+    {% assign labels = "Accueil|Écrits|Lectures|Musique|CV|Contact" | split: "|" %}
+  {% when "la" %}
+    {% assign labels = "Pagina principalis|Scripta|Lectiones|Musica|Curriculum vitae|Contactus" | split: "|" %}
+  {% when "ja" %}
+    {% assign labels = "ホーム|著作|読書|音楽|履歴書|お問い合わせ" | split: "|" %}
+  {% else %}
+    {% assign labels = "Home|Writings|Readings|Music|CV|Contact" | split: "|" %}
+{% endcase %}
+
+{% assign page_keys = "home|writings|readings|music|cv|contact" | split: "|" %}
+
+<nav aria-label="Main navigation" lang="{{ current_language }}">
+  {% for key in page_keys %}
+    {% assign destination = nil %}
+
+    {% for candidate in site.pages %}
+      {% if candidate.translation_key == key and candidate.lang == current_language %}
+        {% assign destination = candidate %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+
+    {% if destination %}
+      <a href="{{ destination.url | relative_url }}"
+         {% if page.translation_key == key %}aria-current="page"{% endif %}>
+        {{ labels[forloop.index0] }}
+      </a>
+    {% endif %}
+  {% endfor %}
 </nav>
 
 <main id="main-content">
