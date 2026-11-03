@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Lecture
-permalink: /fr/
+title: Lectures
+permalink: /fr/readings
 lang: fr
 translation_key: readings
 ---
