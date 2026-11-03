@@ -1,0 +1,35 @@
+{% assign current_language = page.lang | default: "en" %}
+{% assign current_key = page.translation_key | default: "home" %}
+{% assign languages = "en,fr,la,ja" | split: "," %}
+
+<div class="language-switcher">
+  <label for="site-language" class="visually-hidden">
+    Select language
+  </label>
+
+  <select id="site-language"
+          onchange="if (this.value) window.location.href = this.value;">
+    {% for language in languages %}
+      {% assign destination = nil %}
+      {% for candidate in site.pages %}
+        {% if candidate.translation_key == current_key and candidate.lang == language %}
+          {% assign destination = candidate %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+
+      <option
+        value="{% if destination %}{{ destination.url | relative_url }}{% endif %}"
+        lang="{{ language }}"
+        {% if language == current_language %}selected{% endif %}
+        {% unless destination %}disabled{% endunless %}>
+        {% case language %}
+          {% when "en" %}EN 🇺🇸
+          {% when "fr" %}FR 🇫🇷
+          {% when "la" %}LT 🇻🇦
+          {% when "ja" %}JA 🇯🇵
+        {% endcase %}
+      </option>
+    {% endfor %}
+  </select>
+</div>
